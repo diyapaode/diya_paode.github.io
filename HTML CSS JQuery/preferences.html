@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Preferences</title>
+</head>
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:300&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Abril Fatface', cursive;
+}
+.section {
+    height: 120vh;
+}
+.section-1 {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/grapes-2-grey.jpg');
+    background-size: cover;
+    color: white;
+}
+.header-primary {
+    padding-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.header-secondary {
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-size: 1.4rem;
+    padding-left: 1.4rem;
+}
+.navigator {
+    display: inline-block;
+}
+.navigator ul {
+    list-style-type: none;
+    margin: 0.4rem 2.2rem;
+}
+.navigator ul li {
+    padding: 0 1.2rem;
+    font-size: 1.5rem;
+    display: inline-block;
+    text-transform: uppercase;
+}
+.heading {
+    text-align: center;
+}
+.forms > h1, .heading h1 {
+    font-size: 3rem;
+    font-weight: 100;
+    position: relative;
+    padding-bottom: 1rem;
+}
+.forms > h1:before, .heading h1:before {
+    content: "";
+    position: absolute;
+    width: 4rem;
+    transform: translateX(-50%);
+    height: 1px;
+    bottom: 0;
+    left: 50%;
+    border-bottom: 1px solid black;
+}
+.tags {
+    margin: 2rem 0;
+}
+.tags ul {
+    display: flex;
+    font-size: 1.8rem;
+    justify-content: center;
+    list-style-type: none;
+}
+.tags ul li {
+    padding: 0 1rem;
+    color: rgba(255, 255 , 255, 0.4);
+}
+.wrapper {
+    width: 40%;
+    margin: 0 auto;
+}
+.box {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem 5rem;
+    color: black;
+}
+.box ul {
+    list-style-type: none;
+}
+.box p {
+    font-family: 'Lato';
+    padding: 2rem 0;
+    font-size: 1.7rem;
+    color: #222;
+}
+.box ul li {
+    font-size: 2rem;
+    padding: 1rem;
+}
+.forms {
+    text-align: center;
+    margin-top: 6rem;
+}
+.form {
+    margin-top: 1rem;
+    text-align: left;
+}
+.form > p {
+    display: inline-block;
+    font-family: 'Lato';
+    font-size: 1.5rem;
+    margin-right: 0.5rem;
+    text-transform: uppercase;
+    width: 50%;
+    text-align: right;
+}
+.t-input {
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    font-family: 'Lato';
+    font-size: 1rem;
+}
+.form > span > p {
+    display: inline-block;
+    font-family: 'Lato';
+    text-transform: uppercase;
+}
+.form > span {
+    padding: 0.2rem;
+}
+.auto-fix {
+    width: 10%;
+    height: auto;
+    background-color: #ccc;
+    margin-left: 2rem;
+}
+.transport {
+    width: 60%;
+    margin: 0 auto;
+    text-align: left;
+}
+.travels {
+    margin-top: 1rem;
+}
+.travels h2 {
+    font-weight: 100;
+    display: inline-block;
+}
+.travels img {
+    height: 1rem;
+    width: auto;
+}
+.travel {
+    background-color: #ddd;
+    margin: 1rem 0;
+    padding: 1rem 2rem;
+}
+.travel-info {
+    background-color: #eee;
+    margin-top: 0;
+    padding: 1rem 2rem;
+}
+.travel-info p {
+    font-family: 'Lato';
+}
+.travel-info h2 {
+    font-family: 'Lato';
+}
+.hotel {
+    width: 50%;
+    margin: 2rem auto;
+    position: relative;
+}
+.hotel img {
+    width: 50vw;
+    height: auto;
+}
+.caption {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 1rem 2rem;
+    margin-top: 1rem;
+    color: white;
+}
+.caption-1 {
+    top: 0;
+}
+.caption h1 {
+    font-weight: 100;
+}
+.caption-2 {
+    top: 5rem;
+    margin: 1rem 0;
+    padding: 0.2rem 0.5rem;
+    color: black;
+}
+.caption-3 {
+    bottom: 0;
+}
+.caption-3 img {
+    width: 4rem;
+    height: auto;
+}
+.shit {
+    display: flex;
+}
+.fac img {
+    width: 10%;
+    height: auto;
+}
+.shit {
+    justify-content: space-between;
+}
+.shit h1 {
+    font-family: 'Lato';
+    padding: 0.4rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.col {
+    width: 40%;/* margin:0 auto; */
+}
+.shit p {
+    font-family: 'Lato';
+    padding: 0.5rem;
+}
+.shit .col {
+    background-color: #eee;
+    padding: 1rem 2rem;
+}
+.fac {
+    background-color: #eee;
+    width: 100%;
+    margin: 2rem auto;
+}
+.next {
+    text-align: center;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+.next a {
+    text-decoration: none;
+    color: inherit;
+}
+.next h1 {
+    font-weight: 100;
+    font-size: 2rem;
+}
+.ham, .ham-img, .close img {
+    display: none;
+}
+
+@media (max-width: 800px) {
+.navigator {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 1rem;
+    position: fixed;
+    display: none;
+    top: 0;
+    right: 0;
+}
+.ham {
+    display: block;
+    position: fixed;
+    top: 4%;
+    right: 4%;
+    width: 20%;
+    text-align: right;
+}
+.ham img, .close img {
+    display: inline;
+    width: 30%;
+    height: auto;
+}
+.close {
+    text-align: right;
+}
+.close img {
+    width: 5%;
+}
+.navigator ul {
+    text-align: center;
+}
+.navigator ul li {
+    display: block;
+    color: black;
+    padding: 0.8rem;
+}
+.tags ul {
+    justify-content: flex-start;
+}
+.section {
+    height: 140vh;
+}
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+.box {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 2.5rem 5rem;
+    color: black;
+}
+.box ul {
+    list-style-type: none;
+}
+.box p {
+    font-family: 'Lato';
+    padding: 2rem 0;
+    font-size: 1.7rem;
+    color: #222;
+}
+.box ul li {
+    font-size: 2rem;
+    padding: 1rem;
+}
+.fac img {
+    width: 10%;
+    height: auto;
+}
+.hotel {
+    width: 90%;
+}
+.hotel > img {
+    width: 100%;
+}
+}
+</style>
+<script>
+    function magic(id, value) {
+        document.getElementById(id).value = value;
+    }
+    function toggle_shit(id) {
+        var x = document.getElementById(id);
+        if(x.style.display == "block") {
+            x.style.display = "none";
+        }
+        else {
+            x.style.display = "block";
+        }
+    }
+    function toggle_nav(){ 
+        var x = document.getElementById("ham");
+        var y = document.getElementById("nav");
+        if(x.style.display == "block") {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+        else if(y.style.display == "block") {
+            y.style.display = "none";
+            x.style.display = "block";
+        }
+    }
+</script>
+<body>
+<div class="section section-1">
+  <div class="header-primary">
+    <div class="header-secondary">
+      <h1> Maharashtra <br>
+        Tourism</h1>
+    </div>
+    <div onclick='toggle_nav()' id="ham" style="display: block" class="ham"> <img src="images/icons/ham.png" class="ham-img" alt=""> </div>
+    <div class="navigator" id="nav">
+      <div onclick='toggle_nav()' class="close"> <img src="images/icons/close.png" > </div>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Contact Us</li>
+        <li>Login</li>
+        <li>Help</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tags">
+    <ul>
+      <li style="color: white">Preferences</li>
+      <li>Refine</li>
+      <li>Pay</li>
+      <li>Confirm</li>
+    </ul>
+  </div>
+  <div class="wrapper">
+    <div class="box">
+      <div class="heading">
+        <h1> Customized Package </h1>
+        <p>Fill the following forms to help us create the best experience for you</p>
+        <ul>
+          <a style="text-decoration: none; color: inherit;" href="#traveller">
+          <li>Traveller Details</li>
+          </a>
+          <li>Destination</li>
+          <li>Duration</li>
+          <li>Holiday Type</li>
+          <li>Transport</li>
+          <li>Hotels</li>
+          <li>Activity Preferences</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="traveller" class="forms">
+  <h1>Traveller Details</h1>
+  <div class="form">
+    <p>Name*</p>
+    <input onclick='magic("input-1", "Diya Paode")' id="input-1" style="width: 40%" class="t-input" type="text">
+  </div>
+  <div class="form">
+    <p>D.O.B*</p>
+    <input onclick='magic("input-2", "24-10-2000")' id="input-2" style="width: 10%;" class="t-input" type="text">
+  </div>
+  <div class="form">
+    <p>Gender*</p>
+    <input type="radio">
+    <span>
+    <p>Male</p>
+    </span>
+    <input type="radio">
+    <span>
+    <p>Female</p>
+    </span>
+    <input type="radio">
+    <span>
+    <p>Other</p>
+    </span> </div>
+  <div class="form">
+    <p>Phone No*</p>
+    <input onclick='magic("input-3", "9920133431")' id="input-3" style="width: 40%;" class="t-input" type="text">
+  </div>
+  <div class="form">
+    <p>Email ID*</p>
+    <input onclick='magic("input-4", "diya.paode16@gmail.com")' id="input-4" style="width: 40%;" class="t-input" type="text">
+  </div>
+</div>
+<div id="destination" class="forms">
+  <h1>Destination</h1>
+  <div class="form">
+    <p>From</p>
+    <input onclick='magic("input-5", "Mumbai")' id="input-5" style="width: 20%;" class="t-input" type="text">
+  </div>
+  <div class="form">
+    <p>To</p>
+    <input onclick='magic("input-6", "Nashik")' id="input-6" style="width: 20%;" class="t-input" type="text">
+  </div>
+</div>
+<div id="duration" class="forms">
+  <h1>Duration</h1>
+  <div style="display: flex; justify-content: space-evenly;">
+    <div class="form">
+      <p style="width:30%">From</p>
+      <input onclick='magic("input-7", "12/6/19")' id="input-7" style="width: 60%;" class="t-input" type="text">
+    </div>
+    <div class="form">
+      <p style="width: 30%">To</p>
+      <input onclick='magic("input-8", "16/6/19")' id="input-8" style="width: 60%;" class="t-input" type="text">
+    </div>
+  </div>
+</div>
+<div id="destination" class="forms">
+  <h1>Holiday Type</h1>
+  <div style="margin-top: 5rem;">
+    <div style="width: 50%; display: inline-block;">
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Honeymoon</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Safari</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Cultural</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Excursion</label>
+      </div>
+    </div>
+    <div style="width: 49%; display: inline-block;">
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Family</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Adventure</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Luxury</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="radio" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Budget</label>
+      </div>
+    </div>
+  </div>
+  <div id="transport" class="forms">
+    <h1>Transport</h1>
+    <div class="transport"> <img onclick='toggle_shit("travels")' src="images/transport icons/bus.png" class="auto-fix" height="100", width="100"> <img src="images/transport icons/car.png" class="auto-fix" height="100" width="100"> <img src="images/transport icons/train.png" class="auto-fix" height="100" width="100"> <img src="images/transport icons/plane.png" class="auto-fix">
+      <div id="travels" style="display: none;" class="travels">
+        <div class="travel">
+          <h2>Jabbar Travels</h2>
+          <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right"> </div>
+        <div onclick='toggle_shit("travel-info")' class="travel" style="margin-bottom: 0;">
+          <h2>VRL Travels</h2>
+          <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right"> </div>
+        <div style="display:none" id="travel-info" class="travel-info">
+          <p>Volvo Multi-Axle I-Shift A/C Sleeper (2+1)</p>
+          <h2>18:50 Chembur (E) - 22:00 WAKAD-HINJEWADI</h2>
+        </div>
+        <div class="travel">
+          <h2>Orange Tours and Travels</h2>
+          <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right"> </div>
+      </div>
+    </div>
+    <div id="hotels" class="forms">
+      <h1>Hotels</h1>
+      <div class="hotel"> <img src="images/hotels/sky-villa.png">
+        <div class="caption caption-1">
+          <h1>Sky Villa</h1>
+        </div>
+        <div class="caption caption-2">
+          <h3>&#9733; &#9733; &#9733; &#9733;</h3>
+        </div>
+        <div onclick='toggle_shit("garbage-bag")' class="caption caption-3"> <img src="images/icons/arrow-down.png" alt=""> </div>
+        <div class="garbage-bag" style="display: none" id="garbage-bag">
+          <div class="shit">
+            <div class="col">
+              <h1>King Room</h1>
+              <p>One Double Bed</p>
+              <p>Air Conditioning</p>
+              <p>Flat Screen TV</p>
+              <h1>INR 15,000</h1>
+            </div>
+            <div class="col">
+              <h1>Twin Room</h1>
+              <p>Two Single Beds</p>
+              <p>Air Conditioning</p>
+              <p>Flat Screen TV</p>
+              <h1>INR 14,000</h1>
+            </div>
+          </div>
+          <div class="fac"> <img src="images/facilities/wifi.png"> <img src="images/facilities/parking.png"> <img src="images/facilities/gym.png"> <img src="images/facilities/bar.png"> </div>
+        </div>
+      </div>
+      <div class="hotel"> <img src="images/hotels/beyond.png">
+        <div class="caption caption-1">
+          <h1>Beyond, by Sula</h1>
+        </div>
+        <div class="caption caption-2">
+          <h3>&#9733; &#9733; &#9733; &#9733;</h3>
+        </div>
+        <div onclick='toggle_shit("garbage-bag")' class="caption caption-3"> <img src="images/icons/arrow-down.png" alt=""> </div>
+      </div>
+    </div>
+  </div>
+  <div id="activities" class="forms">
+    <h1>Activity Preferences</h1>
+    <div style="width: 50%; display: inline-block;">
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Adventure Sports</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Camping</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Sight-seeing</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Museums</label>
+      </div>
+    </div>
+    <div style="width: 49%; display: inline-block;">
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Beaches</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Local Shopping</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Day tours</label>
+      </div>
+      <div style="margin: 1rem;">
+        <input type="checkbox" style="margin-right: 1rem;">
+        <label style="font-family: Lato; text-transform: uppercase">Long Drives</label>
+      </div>
+    </div>
+  </div>
+  <div class="next"> <a href="refine.html">
+    <h1>Next</h1>
+    </a> </div>
+</div>
+</body>
+</html>

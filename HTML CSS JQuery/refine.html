@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Refine</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:300&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Abril Fatface', cursive;
+    }
+    .section {
+        height: 140vh;
+    }
+    .section-1 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/grapes-2-grey.jpg');
+        background-size: cover;
+        color: white;
+    }
+    .header-primary {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-secondary {
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-size: 1.4rem;
+        padding-left: 1.4rem;
+    }
+    .navigator {
+        display: inline-block;
+    }
+    .navigator ul {
+        list-style-type: none;
+        margin: 0.4rem 2.2rem;
+    }
+    .navigator ul li {
+        padding: 0 1.2rem;
+        font-size: 1.5rem;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .heading {
+        text-align: center;
+    }
+    .next h1, .heading > h1{
+        font-size: 3rem;
+        font-weight: 100;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+    .next h1:before, .heading > h1:before{
+        content: "";
+        position: absolute;
+        width: 4rem;
+        transform: translateX(-50%);
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        border-bottom: 1px solid black;
+    }
+    .next h1:before {
+        bottom: 1rem;
+        width: 2rem;
+    }
+    .tags {
+        margin: 2rem 0;
+    }
+    .tags ul{
+        display: flex;
+        font-size: 1.8rem;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .tags ul li {
+        padding: 0 1rem;
+        color: rgba(255, 255 , 255, 0.4);
+    }
+    .wrapper {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .box {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 2.5rem 5rem;
+        color: black;
+    }
+    .box ul {
+        list-style-type: none;
+    }
+    .box p{
+        font-family: 'Lato';
+        padding: 2rem 0;
+        font-size: 1.7rem;
+        color: #222;
+    }
+    .box ul li {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    .details {
+        margin-bottom: 3rem;
+    }
+    .details h1,h3{
+        font-weight: 100;
+    }
+    .details h3 {
+        color: #777;
+    }
+    .days {
+        background-color: white;
+        padding: 0.8rem 2rem;
+        margin-top: 1rem;
+    }
+    .days p {
+        display: inline-block;
+        padding: 0;
+        font-family: 'Abril Fatface', cursive;
+    }
+    .arrow-wrapper {
+        display: inline-block;
+        text-align: right;
+    }
+    .days img {
+        height: 1rem;
+        width: auto;
+    }
+    .next {
+        text-align: center;
+        margin-top: 4rem;
+    }
+    .next a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .next h1 {
+        font-weight: 100;
+        font-size: 2rem;
+    }
+    .drop {
+        background-color: rgba(255, 255, 255, 0.6);
+        color: black;
+        padding: 1rem 2rem;
+    }
+    .drops {
+        padding: 0.3rem 0;
+    }
+    .drops p{
+        display: inline-block;
+        font-family: 'Abril Fatface', cursive;  
+        padding: 0;
+        color: #999;
+    }
+    .ham, .ham-img, .close img{
+        display: none;
+    }
+    .whatup {
+        width: 18%;
+    }
+    @media (max-width: 800px) {
+        .section-1 {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/grapes-2-grey.jpg');
+        }
+        .navigator {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            position: fixed;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+        .navigator ul {
+            text-align: center;
+        }
+        .navigator ul li {
+            display: block;
+            color: black;
+            padding: 0.8rem;
+        }
+        .ham {
+            display: block;
+            position: fixed;
+            top: 4%;
+            right: 4%;
+            width: 20%;
+            text-align: right;
+        }
+        .ham img, .close img{
+            display: inline;
+            width: 30%;
+            height: auto;
+        }
+        .close {
+            text-align: right;
+        }
+        .close img {
+            width: 5%;
+        }
+        .wrapper {
+            width: 85%;
+        }
+        .whatup {
+            width: 35%;
+        }
+        .tags ul{
+            justify-content: flex-start;
+        }
+    }
+</style>
+<script>
+    function dropdown() {
+        console.log("called");
+        var x = document.getElementById("drop")
+        if(x.style.display == "block") {
+            x.style.display = "none";
+        }
+        else {
+            x.style.display = "block";
+        }
+    }
+    function toggle_nav(){ 
+        var x = document.getElementById("ham");
+        var y = document.getElementById("nav");
+        if(x.style.display == "block") {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+        else if(y.style.display == "block") {
+            y.style.display = "none";
+            x.style.display = "block";
+        }
+    }
+</script>
+<body>
+    <div class="section section-1">
+        <div class="header-primary">
+            <div class="header-secondary">
+                <h1> Maharashtra <br> Tourism</h1>
+            </div>
+            <div onclick='toggle_nav()' id="ham" style="display: block" class="ham">
+                <img src="images/icons/ham.png" class="ham-img" alt="">
+            </div>
+            <div id="nav" class="navigator">
+                <div onclick='toggle_nav()' class="close">
+                    <img src="images/icons/close.png" >
+                </div>
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Login</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tags">
+            <ul>
+                <li>Preferences</li>
+                <li style="color: white">Refine</li>
+                <li>Pay</li>
+                <li>Confirm</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="box">
+                <div class="heading">
+                    <h1>
+                        Travel Itinerary
+                    </h1>
+                    <p>Review and edit your tailor made itinerary</p>
+                    <div class="details">
+                        <h1>Sula Vineyards, Nashik</h1>
+                        <h3>12th June - 16th June</h3>
+                    </div>
+                </div>
+                <div class="days">
+                    <p style="margin-right: 3rem;">Day 1:</p>
+                    <p style="color: #666;">Vineyard Tour</p>
+                    <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right">
+                </div>
+                <div class="days">
+                    <p style="margin-right: 3rem;">Day 2:</p>
+                    <p style="color: #666;">Grape Picking</p>
+                    <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right">
+                </div>
+                <div class="days" onclick="dropdown()" style="cursor: pointer;">
+                    <p style="margin-right: 3rem;">Day 3:</p>
+                    <p style="color: #666;">Wine-making process Tour</p>
+                    <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right">
+                </div>
+                <div id="drop" class="drop" style="display: none;">
+                    <div class="drops">
+                        <p class="whatup">7:00 am</p>
+                        <p>Breakfast</p>
+                    </div>
+                    <div class="drops">
+                        <p class="whatup">9:00 am</p>
+                        <p>Tour Begins</p>
+                    </div>
+                    <div class="drops">
+                        <p class="whatup">11:00 am</p>
+                        <p>Snacks</p>
+                    </div>
+                </div>
+                <div class="days">
+                    <p style="margin-right: 3rem;">Day 4:</p>
+                    <p style="color: #666;">Wine Tasting</p>
+                    <img src="images/icons/arrow-down.png" style="margin: 0.7rem 0 0 0;" align="right">
+                </div>
+                <div class="next">
+                    <a href="pay.html">
+                        <h1>Next</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

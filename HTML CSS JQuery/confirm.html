@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Refine</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:300&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Abril Fatface', cursive;
+    }
+    .section {
+        height: 140vh;
+    }
+    .section-1 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/buddha-confirmed.png');
+        background-size: cover;
+        color: white;
+    }
+    .header-primary {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-secondary {
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-size: 1.4rem;
+        padding-left: 1.4rem;
+    }
+    .navigator {
+        display: inline-block;
+    }
+    .navigator ul {
+        list-style-type: none;
+        margin: 0.4rem 2.2rem;
+    }
+    .navigator ul li {
+        padding: 0 1.2rem;
+        font-size: 1.5rem;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .heading {
+        text-align: center;
+    }
+    .icons h2, .heading > h1{
+        font-size: 3rem;
+        font-weight: 100;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+    .icons h2:before, .heading > h1:before{
+        content: "";
+        position: absolute;
+        width: 4rem;
+        transform: translateX(-50%);
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        border-bottom: 1px solid black;
+    }
+    .icons h2 {
+        font-size: 2rem;
+        padding-bottom: 0.5rem;
+        padding-top: 1rem;
+    }
+    .icons h2:before{
+        width: 9rem;
+    }
+    .next h1:before {
+        bottom: 1rem;
+        width: 2rem;
+    }
+    .tags {
+        margin: 2rem 0;
+    }
+    .tags ul{
+        display: flex;
+        font-size: 1.8rem;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .tags ul li {
+        padding: 0 1rem;
+        color: rgba(255, 255 , 255, 0.4);
+    }
+    .wrapper {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .box {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 2.5rem 5rem;
+        color: black;
+    }
+    .box ul {
+        list-style-type: none;
+    }
+    .box p{
+        font-family: 'Lato';
+        padding: 2rem 0;
+        font-size: 1.7rem;
+        color: #222;
+    }
+    .box ul li {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    .destination {
+        padding-top: 4rem;
+        text-align: center;
+    }
+    .destination h1{
+        font-weight: 100;
+    }
+    .icons {
+        padding-top: 4rem;
+    }
+    .icon {
+        width: 49%;
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+    }
+    .icon img{
+        width: 20%;
+        height: auto;
+    }
+    .ham, .ham-img, .close img{
+        display: none;
+    }
+    @media (max-width: 800px) {
+        .wrapper {
+            width: 90%;
+        }
+        .tags ul{
+            justify-content: flex-start;
+        }
+        .navigator {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            position: fixed;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+        .navigator ul {
+            text-align: center;
+        }
+        .navigator ul li {
+            display: block;
+            color: black;
+            padding: 0.8rem;
+        }
+        .ham {
+            display: block;
+            position: fixed;
+            top: 4%;
+            right: 4%;
+            width: 20%;
+            text-align: right;
+        }
+        .ham img, .close img{
+            display: inline;
+            width: 30%;
+            height: auto;
+        }
+        .close {
+            text-align: right;
+        }
+        .close img {
+            width: 5%;
+        }
+    }
+</style>
+<script>
+    function toggle_nav(){ 
+        var x = document.getElementById("ham");
+        var y = document.getElementById("nav");
+        if(x.style.display == "block") {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+        else if(y.style.display == "block") {
+            y.style.display = "none";
+            x.style.display = "block";
+        }
+    }
+    function dropdown() {
+        console.log("called");
+        var x = document.getElementById("drop")
+        if(x.style.display == "block") {
+            x.style.display = "none";
+        }
+        else {
+            x.style.display = "block";
+        }
+    }
+</script>
+<body>
+    <div class="section section-1">
+        <div class="header-primary">
+            <div class="header-secondary">
+                <h1> Maharashtra <br> Tourism</h1>
+            </div>
+            <div onclick='toggle_nav()' id="ham" style="display: block" class="ham">
+                <img src="images/icons/ham.png" class="ham-img" alt="">
+            </div>
+            <div id="nav" class="navigator">
+                <div onclick='toggle_nav()' class="close">
+                    <img src="images/icons/close.png" >
+                </div>
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Login</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tags">
+            <ul>
+                <li>Preferences</li>
+                <li>Refine</li>
+                <li>Pay</li>
+                <li style="color: white">Confirm</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="box">
+                <div class="heading">
+                    <h1>
+                        Booking Confirmed
+                    </h1>
+                </div>
+                <div class="destination">
+                    <h1>Sula Vineyards, Nashik</h1>
+                    <h1>2 Adults</h1>
+                    <h1>2 nights and 3 days</h1>
+                </div>
+                <div class="icons">
+                    <div class="icon">
+                        <img src="images/icons/printer.png" alt="">
+                        <h2>Print Tickets</h2>
+                    </div>
+                    <div class="icon">
+                        <img src="images/icons/view.png">
+                        <h2>View Itinerary</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

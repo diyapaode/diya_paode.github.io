@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pay</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lato:300&display=swap');
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Abril Fatface', cursive;
+    }
+    .section {
+        height: 190vh;
+    }
+    .section-1 {
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('./images/grapes-2-grey.jpg');
+        background-size: cover;
+        color: white;
+    }
+    .header-primary {
+        padding-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+    }
+    .header-secondary {
+        text-transform: uppercase;
+        letter-spacing: 0.2rem;
+        font-size: 1.4rem;
+        padding-left: 1.4rem;
+    }
+    .navigator {
+        display: inline-block;
+    }
+    .navigator ul {
+        list-style-type: none;
+        margin: 0.4rem 2.2rem;
+    }
+    .navigator ul li {
+        padding: 0 1.2rem;
+        font-size: 1.5rem;
+        display: inline-block;
+        text-transform: uppercase;
+    }
+
+    .heading {
+        text-align: center;
+    }
+    .next h1, .heading > h1{
+        font-size: 3rem;
+        font-weight: 100;
+        position: relative;
+        padding-bottom: 1rem;
+    }
+    .next h1:before, .heading > h1:before{
+        content: "";
+        position: absolute;
+        width: 4rem;
+        transform: translateX(-50%);
+        height: 1px;
+        bottom: 0;
+        left: 50%;
+        border-bottom: 1px solid black;
+    }
+    .next h1:before {
+        bottom: 1rem;
+        width: 2rem;
+    }
+    .tags {
+        margin: 2rem 0;
+    }
+    .tags ul{
+        display: flex;
+        font-size: 1.8rem;
+        justify-content: center;
+        list-style-type: none;
+    }
+    .tags ul li {
+        padding: 0 1rem;
+        color: rgba(255, 255 , 255, 0.4);
+    }
+    .wrapper {
+        width: 50%;
+        margin: 0 auto;
+    }
+    .box {
+        background-color: rgba(255, 255, 255, 0.7);
+        padding: 2.5rem 5rem;
+        color: black;
+    }
+    .box ul {
+        list-style-type: none;
+    }
+    .box p{
+        font-family: 'Lato';
+        padding: 2rem 0;
+        font-size: 1.7rem;
+        color: #222;
+    }
+    .box ul li {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+    .details {
+        margin-bottom: 3rem;
+    }
+    .details h1,h3{
+        font-weight: 100;
+    }
+    .details h3 {
+        color: #777;
+    }
+    .next {
+        text-align: center;
+        margin-top: 4rem;
+    }
+    .next a {
+        text-decoration: none;
+        color: inherit;
+    }
+    .next h1 {
+        font-weight: 100;
+        font-size: 2rem;
+    }
+    .box-2 {
+        background-color: white;
+        padding: 1.5rem 2rem;
+    }
+    .cost {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.2rem 0;
+    }
+    .cost p{
+        font-family: 'Abril Fatface', cursive;
+        padding: 0;
+    }
+    .mode {
+        display: flex;
+        justify-content: space-between;
+    }
+    .mode h2 {
+        background-color: #ddd;
+        padding: 0 1rem;
+        font-weight: 100;
+    }
+    .t-input {
+        border: 1px solid #ccc;
+        /* padding: 0.7rem 0; */
+        padding: 0.6rem 0.3rem;
+        font-family: 'Lato';
+        font-size: 1rem;
+        width: 40%;
+        cursor: pointer;
+        background-color: #ccc;
+    }
+    .info {
+        padding: 1rem 0;
+    }
+    .info div{ 
+        display: inline-block;
+        width: 50%;
+        text-align: right;
+        /* padding-right: 0.3rem; */
+        padding: 1rem 0.6rem;
+    }
+    .info p {
+        padding: 0;
+        font-size: 1.5rem;    
+    }
+    .ham, .ham-img, .close img{
+        display: none;
+    }
+    @media (max-width: 800px) {
+        .tags ul{
+            justify-content: flex-start;
+        }
+        .navigator {
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 1rem;
+            position: fixed;
+            display: none;
+            top: 0;
+            right: 0;
+        }
+        .navigator ul {
+            text-align: center;
+        }
+        .navigator ul li {
+            display: block;
+            color: black;
+            padding: 0.8rem;
+        }
+        .ham {
+            display: block;
+            position: fixed;
+            top: 4%;
+            right: 4%;
+            width: 20%;
+            text-align: right;
+        }
+        .ham img, .close img{
+            display: inline;
+            width: 30%;
+            height: auto;
+        }
+        .close {
+            text-align: right;
+        }
+        .close img {
+            width: 5%;
+        }
+        .wrapper {
+            width: 90%;
+        }
+    }
+</style>
+<script>
+    function toggle_nav(){ 
+        var x = document.getElementById("ham");
+        var y = document.getElementById("nav");
+        if(x.style.display == "block") {
+            x.style.display = "none";
+            y.style.display = "block";
+        }
+        else if(y.style.display == "block") {
+            y.style.display = "none";
+            x.style.display = "block";
+        }
+    }
+    function dropdown() {
+        console.log("called");
+        var x = document.getElementById("drop")
+        if(x.style.display == "block") {
+            x.style.display = "none";
+        }
+        else {
+            x.style.display = "block";
+        }
+    }
+
+    function magic(id, value) {
+        document.getElementById(id).value = value;
+    }
+</script>
+<body>
+    <div class="section section-1">
+        <div class="header-primary">
+            <div class="header-secondary">
+                <h1> Maharashtra <br> Tourism</h1>
+            </div>
+            <div onclick='toggle_nav()' id="ham" style="display: block" class="ham">
+                <img src="images/icons/ham.png" class="ham-img" alt="">
+            </div>
+            <div id="nav" class="navigator">
+                <div onclick='toggle_nav()' class="close">
+                    <img src="images/icons/close.png" >
+                </div>
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                    <li>Login</li>
+                    <li>Help</li>
+                </ul>
+            </div>
+        </div>
+        <div class="tags">
+            <ul>
+                <li>Preferences</li>
+                <li>Refine</li>
+                <li style="color: white">Pay</li>
+                <li>Confirm</li>
+            </ul>
+        </div>
+        <div class="wrapper">
+            <div class="box">
+                <div class="heading">
+                    <h1>
+                        Payment
+                    </h1>
+                    <p>Cost Breakdown</p>
+                    <div class="details">
+                        <h1>Sula Vineyards, Nashik</h1>
+                        <h3>12th June - 16th June</h3>
+                    </div>
+                </div>
+                <div class="box-2">
+                    <div class="cost">
+                        <p>Hotel</p>
+                        <p style="font-weight: 100">....</p>
+                        <p style="font-family: 'Lato';">10,000 INR</p>
+                    </div>
+                    <div class="cost">
+                        <p>Transport</p>
+                        <p style="font-weight: 100">....</p>
+                        <p style="font-family: 'Lato';">3,000 INR</p>
+                    </div>
+                    <div class="cost">
+                        <p>Tours</p>
+                        <p style="font-weight: 100">....</p>
+                        <p style="font-family: 'Lato';">5,000 INR</p>
+                    </div>
+                    <div class="cost">
+                        <p>Total (incl. GST)</p>
+                        <p style="font-weight: 100">....    </p>
+                        <p style="font-family: 'Lato'; font-weight: bold;">20,000 INR</p>
+                    </div>
+                    
+                </div>
+                <p style="text-align: center; padding-top: 5rem;">Payment Mode</p>
+                <div class="box-2">
+                    <div class="mode">
+                        <h2>Credit Card</h2>
+                        <h2 style="background-color: transparent;">Debit Card</h2>
+                        <h2>Google Pay</h2>
+                        <h2>PayTM</h2>
+                    </div>
+                    <div class="info">
+                        <div>
+                            <p>Card Number</p>
+                        </div>
+                        <input id="t-input" onclick='magic("t-input", "1234 4567 6789 9101")' class="t-input" type="text">
+                        <div>
+                            <p>Valid Till</p>
+                        </div>
+                        <input id="t-input2" style="width: 10%" onclick='magic("t-input2", "4/24")' class="t-input" type="text">
+                        <div>
+                            <p>Name Of Card Holder</p>
+                        </div>
+                        <input id="t-input3" onclick='magic("t-input3", "Diya Paode")' class="t-input" type="text">
+                        <div>
+                            <p>CVV</p>
+                        </div>
+                        <input id="t-input4" style="width: 10%" onclick='magic("t-input4", "123")' class="t-input" type="password">
+                    </div>
+                </div>
+                <div class="next">
+                    <a href="confirm.html">
+                        <h1>Next</h1>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
